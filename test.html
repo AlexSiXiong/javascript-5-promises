@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+   const log = console.log.bind(console)
+
+   var promise6 = Promise.resolve(10);
+   var modifiedResolve;
+
+
+    modifiedResolve = promise6.then(i => {
+        modifiedResolve = i * 2
+    })
+
+
+</script>
+</html>

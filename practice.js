@@ -23,22 +23,26 @@ function promisedNames() {
 ////////// PROBLEM 1 //////////
 
 /*
- * Write a function called "first" that returns a promise by calling the "promisedNames" function and
+ * Write a function called "first" that returns a [promise] by calling the "promisedNames" function and
  * only returns the first name from the names array.
  */
 
 // Code Here
-
+function first() {
+  return promisedNames().then(res => res[0])
+}
 
 ////////// PROBLEM 2 //////////
 
 /*
- * Write a function called last that returns a promise by calling the "promisedNames" function and
+ * Write a function called "last" that returns a promise by calling the "promisedNames" function and
  * only returns the last name from the names array.
  */
 
 //Code Here
-
+function last() {
+  return promisedNames().then(res => res[res.length - 1])
+}
 
 ////////// PROBLEM 3 //////////
 
@@ -48,7 +52,15 @@ function promisedNames() {
 */
 
 //Code Here
-
+function toLarge(num) {
+  return new Promise((resolve, reject) => {
+    if (num <= 10) {
+      resolve(num)
+    } else {
+      reject(num)
+    }
+  })
+}
 
 ////////// PROBLEM 4 //////////
 
@@ -62,14 +74,16 @@ function promisesErrors() {
 
 /*
  * Write a function called "errorCatcher" that calls the promisesErrors" function above, catches the error
- * returned and then resolves the error message.
+ * returned and then resolves the error message. # 这个resolves 就是 return the error the message
  *
  * hint: error objects have a message property
  * > { message: 'This is the error I promised' }
 */
 
 // Code Here
-
+function errorCatcher() {
+  return promisesErrors().then().catch(err => err.message)
+}
 
 ////////// PROBLEM 5 //////////
 
@@ -81,7 +95,13 @@ function promisesErrors() {
 */
 
 //Code Here
-
+function waitFor10() {
+  return new Promise((resolve, reject) => {
+    setTimeout(()=> {
+      resolve(true)
+    }, 10000)
+  })
+}
 ////////// PROBLEM 6 //////////
 
 /*
@@ -97,4 +117,7 @@ var modifiedResolve;
 
 //Code Here
 
+modifiedResolve = promise6.then(i => {
+  modifiedResolve = i * 2
+})
 
